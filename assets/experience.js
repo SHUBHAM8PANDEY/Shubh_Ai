@@ -78,9 +78,10 @@ if (noteForm) {
 }
 
 const guide = [
-  ["contact", /^(?:(?:how (?:can|do) i |kaise )?(?:contact|reach)(?: shubham| shubh ai| karu)?|(?:shubham(?: pandey)? )?(?:(?:ka|ki) )?(?:email(?: address)?|phone(?: number)?|number|contact details))$/, "Email shubhamgkpp@gmail.com or call +91 8953620607.", "contact.html"],
+  ["resume", /^(?:resume|cv|download (?:your |the )?resume|(?:where|how) can i (?:find|download) (?:your |the )?resume|resume (?:link|pdf)|resume dikhao)$/, "You can view or download my latest resume from the portfolio page.", "portfolio.html"],
+  ["contact", /^(?:(?:how (?:can|do) i |kaise )?(?:contact|reach)(?: shubham| shubh ai| karu)?|(?:shubham(?: pandey)? )?(?:(?:ka|ki) )?(?:email(?: address)?|phone(?: number)?|number|contact details))$/, "You can email me at shubhamgkpp@gmail.com or call +91 8953620607.", "contact.html"],
   ["developer", /^(?:who (?:is|built) (?:shubham(?: pandey)?|shubh ai)|(?:about )?shubham(?: pandey)?|developer|shubham kaun hai)$/, "Shubham Pandey is a full stack developer based in Gorakhpur, India.", "portfolio.html"],
-  ["projects", /^(?:projects|portfolio|(?:show me |what are )?(?:shubham(?: pandey)?(?:'s)?|shubh ai) projects)$/, "Explore the SHUBH AI website and browser-based text analyzer in the portfolio.", "portfolio.html#projects"],
+  ["projects", /^(?:projects|portfolio|(?:show me |what are )?(?:shubham(?: pandey)?(?:'s)?|shubh ai) projects)$/, "My portfolio has the projects I’ve worked on, including an employee management system, an AI email tool, and SHUBH AI.", "portfolio.html#projects"],
   ["site", /^(?:what is shubh ai|about shubh ai|shubh ai|website|about this (?:site|website))$/, "SHUBH AI is Shubham Pandey’s independent AI learning site and developer portfolio.", "index.html"],
 ];
 const launch = document.querySelector(".chat-launch");
@@ -114,7 +115,7 @@ chatForm.addEventListener("submit", async (event) => {
   history.scrollTop = history.scrollHeight;
   chatForm.reset();
   if (!result) {
-    reply.textContent = "Ask about SHUBH AI, Shubham Pandey, projects, or contact details. Try “contact” or “projects”.";
+    reply.textContent = "I can help you find things on this site. Try “resume”, “projects”, or “contact”.";
     return;
   }
 
@@ -127,6 +128,7 @@ chatForm.addEventListener("submit", async (event) => {
     if (location.protocol === "file:" || location.hostname.endsWith(".github.io")) {
       throw new Error("Static preview");
     }
+    if (result[0] === "resume") throw new Error("Resume link is local");
     const response = await fetch("api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -145,10 +147,11 @@ chatForm.addEventListener("submit", async (event) => {
   } finally {
     submit.disabled = false;
   }
-  reply.textContent = `${source}: ${answer} `;
+  reply.textContent = answer + " ";
+  if (source === "Groq") reply.setAttribute("title", "Reply phrased by Groq");
   const more = document.createElement("a");
   more.href = result[3];
-  more.textContent = "Open page";
+  more.textContent = { resume: "View portfolio and resume", projects: "See projects", developer: "Open portfolio", contact: "Contact page", site: "Home" }[result[0]];
   reply.append(more);
   history.scrollTop = history.scrollHeight;
 });
