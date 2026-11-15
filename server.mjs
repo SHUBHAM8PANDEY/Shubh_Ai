@@ -4,11 +4,11 @@ import { extname } from "node:path";
 
 const topics = {
   site: "SHUBH AI is Shubham Pandey’s independent portfolio and AI education site. It has an AI learning guide, an application catalog, a journal, and a browser text analyzer.",
-  developer: "Shubham Pandey is a full stack developer in Gorakhpur, Uttar Pradesh, India. His portfolio is on the About page.",
+  developer: "Shubham Pandey is a full stack developer in Gorakhpur, Uttar Pradesh, India. His projects and downloadable resume are on the Portfolio page.",
   contact: "Contact Shubham Pandey at shubhamgkpp@gmail.com or +91 8953620607. See the Contact page for current form availability.",
-  projects: "The About page showcases the SHUBH AI website and its browser-based text analyzer. The AI Learning page has 29 educational application examples.",
+  projects: "The Portfolio page showcases the SHUBH AI website and its browser-based text analyzer. The AI Learning page has 29 educational application examples.",
 };
-const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml" };
+const types = { ".pdf": "application/pdf", ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml" };
 const cache = new Map();
 let day = "";
 let calls = 0;
@@ -67,7 +67,7 @@ createServer(async (req, res) => {
     if (route === "/api/chat") return await chat(req, res);
     const file = route === "/" ? "/index.html" : route;
     if (!["GET", "HEAD"].includes(req.method) ||
-        !/^\/(?:[a-z-]+\.html|assets\/[a-z0-9-]+\.(?:css|js|jpg|png|svg))$/.test(file)) return json(res, 404, { error: "Page unavailable." });
+        !/^\/(?:[a-z-]+\.html|assets\/[a-z0-9-]+\.(?:css|js|jpg|png|svg|pdf))$/.test(file)) return json(res, 404, { error: "Page unavailable." });
     const data = await readFile(new URL(`.${file}`, import.meta.url));
     res.writeHead(200, { "Content-Type": types[extname(file)], "X-Content-Type-Options": "nosniff" });
     res.end(req.method === "HEAD" ? undefined : data);

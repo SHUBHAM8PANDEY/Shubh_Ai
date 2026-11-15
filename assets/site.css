@@ -162,3 +162,7 @@ select{width:100%;border:1px solid var(--border);border-radius:.55rem;background
 .portrait-logo{object-fit:cover;object-position:50% 26%;border-radius:50%;border:2px solid var(--mint)}
 .profile-photo{display:block;width:min(100%,270px);max-height:315px;object-fit:cover;object-position:50% 42%;border-radius:1rem;margin:0 0 1.3rem}
 .portfolio-photo{object-position:50% 70%}
+
+.portfolio-hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.65fr);gap:2rem;align-items:center}
+.portfolio-headshot{display:block;width:100%;max-width:310px;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:1.2rem;border:1px solid var(--border);justify-self:center}
+@media(max-width:680px){.portfolio-hero{grid-template-columns:minmax(0,1fr)}.portfolio-headshot{justify-self:start;max-width:240px}}

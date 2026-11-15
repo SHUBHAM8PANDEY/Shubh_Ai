@@ -79,8 +79,8 @@ if (noteForm) {
 
 const guide = [
   ["contact", /^(?:(?:how (?:can|do) i |kaise )?(?:contact|reach)(?: shubham| shubh ai| karu)?|(?:shubham(?: pandey)? )?(?:(?:ka|ki) )?(?:email(?: address)?|phone(?: number)?|number|contact details))$/, "Email shubhamgkpp@gmail.com or call +91 8953620607.", "contact.html"],
-  ["developer", /^(?:who (?:is|built) (?:shubham(?: pandey)?|shubh ai)|(?:about )?shubham(?: pandey)?|developer|shubham kaun hai)$/, "Shubham Pandey is a full stack developer based in Gorakhpur, India.", "about.html#developer"],
-  ["projects", /^(?:projects|portfolio|(?:show me |what are )?(?:shubham(?: pandey)?(?:'s)?|shubh ai) projects)$/, "Explore the SHUBH AI website and browser-based text analyzer in the portfolio.", "about.html#projects"],
+  ["developer", /^(?:who (?:is|built) (?:shubham(?: pandey)?|shubh ai)|(?:about )?shubham(?: pandey)?|developer|shubham kaun hai)$/, "Shubham Pandey is a full stack developer based in Gorakhpur, India.", "portfolio.html"],
+  ["projects", /^(?:projects|portfolio|(?:show me |what are )?(?:shubham(?: pandey)?(?:'s)?|shubh ai) projects)$/, "Explore the SHUBH AI website and browser-based text analyzer in the portfolio.", "portfolio.html#projects"],
   ["site", /^(?:what is shubh ai|about shubh ai|shubh ai|website|about this (?:site|website))$/, "SHUBH AI is Shubham Pandey’s independent AI learning site and developer portfolio.", "index.html"],
 ];
 const launch = document.querySelector(".chat-launch");

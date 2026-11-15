@@ -20,6 +20,7 @@ An independent AI learning website and portfolio by Shubham Pandey, Full Stack D
 | Route | Connects to |
 | --- | --- |
 | `index.html` | AI Learning, text analyzer, journal, and developer portfolio |
+| `portfolio.html` | Resume PDF, selected projects, experience, skills, and education |
 | `about.html` | Developer profile, skills, projects, and text analyzer |
 | `ai-solutions.html` | AI, machine learning, deep learning, generative AI, and text analyzer |
 | `blog.html` | Both articles and external AI update sources |
@@ -29,7 +30,7 @@ An independent AI learning website and portfolio by Shubham Pandey, Full Stack D
 | `privacy-policy.html` | Contact data handling |
 | `term-services.html` | Site use terms and contact page |
 
-Shared navigation links Home, About, AI Learning, Journal, and Contact. The footer links Contact, Privacy Policy, and Terms of Use. The `assets/` folder contains the stylesheet, navigation and tool script, contact script, and logo.
+Shared navigation links Home, About, AI Learning, Journal, Contact, and Portfolio. The footer links Contact, Privacy Policy, and Terms of Use. The `assets/` folder contains the stylesheet, navigation and tool script, contact script, and logo.
 
 ## Preview locally
 
