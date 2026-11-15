@@ -4,6 +4,14 @@ const button = form.querySelector("button");
 const endpoint = form.getAttribute("action");
 const configured = /^https:\/\/formspree\.io\/f\/[a-z0-9]+$/i.test(endpoint ?? "");
 
+if (!configured) {
+  const emailLink = document.createElement("a");
+  emailLink.className = "button";
+  emailLink.href = "mailto:shubhampipig@gmail.com";
+  emailLink.textContent = "Write an email";
+  form.replaceChildren(status, emailLink);
+}
+
 if (configured) {
   button.disabled = false;
   status.textContent = "";
