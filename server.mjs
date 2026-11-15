@@ -5,7 +5,7 @@ import { extname } from "node:path";
 const topics = {
   site: "SHUBH AI is Shubham Pandey’s independent portfolio and AI education site. It has an AI learning guide, an application catalog, a journal, and a browser text analyzer.",
   developer: "Shubham Pandey is a full stack developer in Gorakhpur, Uttar Pradesh, India. His projects and downloadable resume are on the Portfolio page.",
-  contact: "Contact Shubham Pandey at shubhamgkpp@gmail.com or +91 8953620607. See the Contact page for current form availability.",
+  contact: "Contact Shubham Pandey at shubhampipig@gmail.com or +91 8953620607. See the Contact page for current form availability.",
   projects: "The Portfolio page showcases the SHUBH AI website and its browser-based text analyzer. The AI Learning page has 29 educational application examples.",
 };
 const types = { ".pdf": "application/pdf", ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml" };

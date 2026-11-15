@@ -38,7 +38,7 @@ From this directory run `python -m http.server 8080` and open `http://localhost:
 
 ## Activate Gmail delivery
 
-1. In [Formspree](https://formspree.io/), create a form and link and verify `shubhamgkpp@gmail.com` as the notification recipient.
+1. In [Formspree](https://formspree.io/), create a form and link and verify `shubhampipig@gmail.com` as the notification recipient.
 2. In the form settings, confirm that email notifications use that verified address. Copy the public endpoint in the format `https://formspree.io/f/yourformid`.
 3. Replace the placeholder action in `contact.html` with that endpoint. Use the public form URL only. Gmail credentials and private keys belong outside this project.
 4. Serve the site locally and submit a clearly labeled test. Confirm the submission appears in Formspree and the notification arrives in Gmail. Check Spam and the notification setting if the dashboard records the test but the inbox does not receive it.

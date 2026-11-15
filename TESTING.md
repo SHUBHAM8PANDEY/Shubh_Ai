@@ -19,6 +19,6 @@
 
 ## Manual steps
 
-1. Provide a verified Formspree endpoint configured to notify shubhamgkpp@gmail.com. Confirm dashboard acceptance and Gmail delivery after activation.
+1. Provide a verified Formspree endpoint configured to notify shubhampipig@gmail.com. Confirm dashboard acceptance and Gmail delivery after activation.
 2. Review the local preview and restoration report. Use the README commands only when ready to publish.
 3. Verify the final GitHub Pages URL and repeat the mail delivery test once hosted.

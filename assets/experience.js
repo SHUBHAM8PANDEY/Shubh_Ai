@@ -79,7 +79,7 @@ if (noteForm) {
 
 const guide = [
   ["resume", /^(?:resume|cv|download (?:your |the )?resume|(?:where|how) can i (?:find|download) (?:your |the )?resume|resume (?:link|pdf)|resume dikhao)$/, "You can view or download my latest resume from the portfolio page.", "portfolio.html"],
-  ["contact", /^(?:(?:how (?:can|do) i |kaise )?(?:contact|reach)(?: shubham| shubh ai| karu)?|(?:shubham(?: pandey)? )?(?:(?:ka|ki) )?(?:email(?: address)?|phone(?: number)?|number|contact details))$/, "You can email me at shubhamgkpp@gmail.com or call +91 8953620607.", "contact.html"],
+  ["contact", /^(?:(?:how (?:can|do) i |kaise )?(?:contact|reach)(?: shubham| shubh ai| karu)?|(?:shubham(?: pandey)? )?(?:(?:ka|ki) )?(?:email(?: address)?|phone(?: number)?|number|contact details))$/, "You can email me at shubhampipig@gmail.com or call +91 8953620607.", "contact.html"],
   ["developer", /^(?:who (?:is|built) (?:shubham(?: pandey)?|shubh ai)|(?:about )?shubham(?: pandey)?|developer|shubham kaun hai)$/, "Shubham Pandey is a full stack developer based in Gorakhpur, India.", "portfolio.html"],
   ["projects", /^(?:projects|portfolio|(?:show me |what are )?(?:shubham(?: pandey)?(?:'s)?|shubh ai) projects)$/, "My portfolio has the projects I’ve worked on, including an employee management system, an AI email tool, and SHUBH AI.", "portfolio.html#projects"],
   ["site", /^(?:what is shubh ai|about shubh ai|shubh ai|website|about this (?:site|website))$/, "SHUBH AI is Shubham Pandey’s independent AI learning site and developer portfolio.", "index.html"],
