@@ -12,7 +12,7 @@ An independent AI learning website and portfolio by Shubham Pandey, Full Stack D
 - Five-slide featured gallery, application and case study carousels, and a 29-entry searchable catalog
 - Illustrated technology and industry tabs, article sidebars, private browser notes, and FAQ accordions
 - Responsive navigation, keyboard support, reduced-motion styling, and a custom SVG mark
-- Contact form with native field validation, submission status, timeout handling, and Formspree spam filtering
+- Contact form with native field validation, Google Apps Script delivery and server-side duplicate checks
 - Static HTML, CSS, and JavaScript. No build step or runtime packages.
 
 ## Page map
@@ -38,13 +38,14 @@ From this directory run `python -m http.server 8080` and open `http://localhost:
 
 ## Activate Gmail delivery
 
-1. In [Formspree](https://formspree.io/), create a form and link and verify `shubhampipig@gmail.com` as the notification recipient.
-2. In the form settings, confirm that email notifications use that verified address. Copy the public endpoint in the format `https://formspree.io/f/yourformid`.
-3. Replace the placeholder action in `contact.html` with that endpoint. Use the public form URL only. Gmail credentials and private keys belong outside this project.
-4. Serve the site locally and submit a clearly labeled test. Confirm the submission appears in Formspree and the notification arrives in Gmail. Check Spam and the notification setting if the dashboard records the test but the inbox does not receive it.
-5. Repeat the test from the approved hosted URL once deployed. Update any domain restrictions accordingly.
+1. Sign in to Google as `shubhampipig@gmail.com` and create a private Google Sheet.
+2. In the Sheet, open **Extensions → Apps Script**. Replace the editor contents with [Code.gs](google-apps-script/Code.gs) and save.
+3. Select `setup` in the editor's function dropdown and click **Run**. Authorize Google Sheets and email access. Keep the Sheet private.
+4. Select **Deploy → New deployment → Web app**. Set **Execute as** to **Me** and **Who has access** to **Anyone** (anonymous visitors). Click **Deploy**.
+5. Copy the public URL ending in `/exec` and put it in the empty `action=""` attribute of the form in `contact.html`. Do not publish a Sheet URL, credentials, or an OAuth token. Push that change to GitHub.
+6. Submit once using a test sender address. Confirm it reaches Gmail. Submit again with the same address and verify that the duplicate is blocked.
 
-The form stays disabled until an endpoint is configured. Its success message confirms service acceptance. Gmail delivery is verified separately in the inbox. The [free tier](https://help.formspree.io/articles/account-management/account-limits) starts at 50 submissions per month, supports two linked notification addresses, and exposes 30 days of submissions in the dashboard.
+The backend uses a locked Google Sheet ledger to allow one submission per email address. It normalizes case and Gmail dots and plus aliases. It does not verify ownership of the sender address. If an attempt stays pending, check whether Gmail received it before clearing its ledger row to permit retry. The form shows an email link until an Apps Script URL is configured.
 
 ## Deploy after approval
 
@@ -57,7 +58,7 @@ To upload future changes from PowerShell:
 ```powershell
 Set-Location -LiteralPath 'G:\SHUBH-AI'
 git status --short
-git add -- .gitignore .nojekyll README.md TESTING.md server.mjs *.html assets
+git add -- .gitignore .nojekyll README.md TESTING.md server.mjs *.html assets google-apps-script
 git diff --cached --stat
 git commit -m "Update SHUBH AI website"
 git push origin main
